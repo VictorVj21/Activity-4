@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        DISPLAYING ALL COUNTRY NAMES WITH REGION , SUB REGION AND POPULATION
+    </h1>>
+    <script>
+        function reqListener() {
+           data=JSON.parse(this.responseText);
+            for(i=0;i<data.length;i++){
+               console.log(data[i].name.official,  data[i].region,  data[i].subregion,  data[i].population)
+        }
+        }
+        const req = new XMLHttpRequest();
+        req.addEventListener("load", reqListener);
+        req.open("GET", "https://restcountries.com/v3.1/all");
+        req.send();
+    </script>
+</body>
+</html>
+
+
+
